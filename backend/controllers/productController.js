@@ -1,18 +1,25 @@
 const Product = require("../models/productModel")
 
-
-
-
-// create product
-
-
 exports.createProduct = async(req,res,next)=>{
-    const product = await Product.create(req.body);
+    const {name,description,price,category,stock,reviews,rating,images,numOfReviews}=
+    req.body 
+    const product=new Product({
+        name:name,
+        description:description,
+        price:price,
+        rating:rating,
+        images:images,
+        category:category,
+        stock:stock,
+        numOfReviews:numOfReviews,
+        reviews:reviews,
+    })
+    product.save()
 
     res.status(201).json({success:true,product
     })  
 
 }
-exports .getAllProducts =(req,res)=>{
+exports.getAllProducts =(req,res)=>{
     res.status(200).json({message:"route is working fine"})
 }
