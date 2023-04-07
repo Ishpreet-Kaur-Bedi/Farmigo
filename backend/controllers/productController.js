@@ -1,7 +1,7 @@
 const Product = require("../models/productModel")
 
 exports.createProduct = async(req,res,next)=>{
-    const {name,description,price,category,stock,reviews,rating,images,numOfReviews}=
+    const {name,description,price,catagory,stock,reviews,rating,images,numOfReviews}=
     req.body 
     const product=new Product({
         name:name,
@@ -9,7 +9,7 @@ exports.createProduct = async(req,res,next)=>{
         price:price,
         rating:rating,
         images:images,
-        category:category,
+        catagory:catagory,
         stock:stock,
         numOfReviews:numOfReviews,
         reviews:reviews,
